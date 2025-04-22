@@ -304,8 +304,10 @@ export default function OfferPage() {
           </CardContent>
           
           <CardFooter className="flex flex-col sm:flex-row gap-4 justify-center p-6 bg-gray-50 border-t">
-            <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white shadow-md hover:shadow-lg transition-all">
-              Запросить демонстрацию
+            <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white shadow-md hover:shadow-lg transition-all" asChild>
+              <a href="https://t.me/sapientweb" target="_blank" rel="noopener noreferrer">
+                Связаться с нами
+              </a>
             </Button>
             <Button size="lg" variant="outline" className="w-full sm:w-auto border-primary text-primary hover:bg-primary/5">
               Получить коммерческое предложение
