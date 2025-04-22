@@ -265,9 +265,9 @@ export default function OfferPage() {
                     <div className="bg-primary/10 p-2 rounded-full">
                       <Sparkles className="h-5 w-5 text-primary" />
                     </div>
-                    <h3 className="font-semibold">Экспертиза в металлообработке</h3>
+                    <h3 className="font-semibold">Не бросаем после сдачи</h3>
                   </div>
-                  <p className="text-sm text-gray-600">Более 10 успешных проектов в сфере производства и машиностроения. Мы понимаем специфику вашего бизнеса.</p>
+                  <p className="text-sm text-gray-600">В отличие от многих, мы не исчезаем после получения оплаты. Гарантируем реальную поддержку, а не обещания по телефону.</p>
                 </div>
                 
                 <div className="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-all">
@@ -275,9 +275,9 @@ export default function OfferPage() {
                     <div className="bg-primary/10 p-2 rounded-full">
                       <Settings className="h-5 w-5 text-primary" />
                     </div>
-                    <h3 className="font-semibold">Гибкая кастомизация</h3>
+                    <h3 className="font-semibold">Предлагаем улучшения</h3>
                   </div>
-                  <p className="text-sm text-gray-600">Адаптируем систему под ваши уникальные бизнес-процессы. Учтём все нюансы вашего производства.</p>
+                  <p className="text-sm text-gray-600">Не просто выполняем ТЗ, а предлагаем оптимизации и доработки, о которых вы могли не подумать. Мыслим бизнес-логикой.</p>
                 </div>
                 
                 <div className="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-all">
@@ -285,9 +285,9 @@ export default function OfferPage() {
                     <div className="bg-primary/10 p-2 rounded-full">
                       <Download className="h-5 w-5 text-primary" />
                     </div>
-                    <h3 className="font-semibold">Рост эффективности</h3>
+                    <h3 className="font-semibold">Соблюдаем сроки</h3>
                   </div>
-                  <p className="text-sm text-gray-600">В среднем наши клиенты сокращают административные затраты на 30% и ускоряют обработку заказов в 2 раза.</p>
+                  <p className="text-sm text-gray-600">Никаких "почти готово" или "ещё неделька". Если говорим месяц — значит месяц. Никаких неожиданных доплат в процессе.</p>
                 </div>
                 
                 <div className="bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition-all">
@@ -295,9 +295,9 @@ export default function OfferPage() {
                     <div className="bg-primary/10 p-2 rounded-full">
                       <Users className="h-5 w-5 text-primary" />
                     </div>
-                    <h3 className="font-semibold">Высокая удовлетворённость</h3>
+                    <h3 className="font-semibold">Говорим на языке бизнеса</h3>
                   </div>
-                  <p className="text-sm text-gray-600">97% наших клиентов рекомендуют нас своим партнёрам. Средняя оценка удовлетворённости — 4.9 из 5.</p>
+                  <p className="text-sm text-gray-600">Объясняем всё без "программистского жаргона". Ваш отдел сможет освоить систему за 1-2 дня без специальных знаний.</p>
                 </div>
               </div>
             </div>
