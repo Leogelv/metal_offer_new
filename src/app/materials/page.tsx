@@ -7,6 +7,8 @@ import { Input } from "../../../components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../../components/ui/tabs";
 import { materials } from "../../shared/mockData";
 import { Material } from "../../shared/types";
+import MaterialForm from "../../features/material/MaterialForm";
+import { Layers } from "lucide-react";
 
 export default function MaterialsPage() {
   // Функция для отображения статуса остатка
@@ -22,10 +24,11 @@ export default function MaterialsPage() {
   return (
     <DashboardLayout>
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Материалы</h1>
-        <Button className="bg-blue-500 hover:bg-blue-600">
-          Новый материал
-        </Button>
+        <div className="flex items-center gap-2">
+          <Layers className="w-6 h-6 text-primary" />
+          <h1 className="text-2xl font-bold">Материалы</h1>
+        </div>
+        <MaterialForm />
       </div>
 
       <Tabs defaultValue="materials" className="w-full mb-6">

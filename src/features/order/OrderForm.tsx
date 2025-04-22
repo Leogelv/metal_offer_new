@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetFooter } from '../../../components/ui/sheet';
+import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle } from '../../../components/ui/sheet';
 import { Button } from '../../../components/ui/button';
 import { Input } from '../../../components/ui/input';
 import { customers } from '../../shared/mockData';
 import { OrderItem } from '../../shared/types';
-import { Plus, User, Package, Wrench, PaintBucket, Save, X, DollarSign } from 'lucide-react';
+import { Plus, User, Package, Wrench, Save, X, DollarSign } from 'lucide-react';
 
 export default function OrderForm() {
   const [open, setOpen] = useState(false);
@@ -210,7 +210,7 @@ export default function OrderForm() {
                 <div className="font-medium">Статус</div>
                 <select
                   value={status}
-                  onChange={(e) => setStatus(e.target.value as any)}
+                  onChange={(e) => setStatus(e.target.value as 'completed' | 'not_completed')}
                   className="w-full p-3 rounded-lg border border-gray-300 bg-white text-base focus:outline-none focus:ring-1 focus:ring-primary"
                 >
                   <option value="not_completed">Не выполнен</option>
@@ -225,7 +225,7 @@ export default function OrderForm() {
                 </div>
                 <select
                   value={payment}
-                  onChange={(e) => setPayment(e.target.value as any)}
+                  onChange={(e) => setPayment(e.target.value as 'paid' | 'not_paid' | 'debt')}
                   className="w-full p-3 rounded-lg border border-gray-300 bg-white text-base focus:outline-none focus:ring-1 focus:ring-primary"
                 >
                   <option value="not_paid">Не оплачено</option>

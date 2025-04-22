@@ -2,17 +2,21 @@ import { DashboardLayout } from "../../../components/layout/DashboardLayout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../../components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../../../components/ui/table";
 import { Input } from "../../../components/ui/input";
+import { Button } from "../../../components/ui/button";
 import { customers } from "../../shared/mockData";
 import { Customer } from "../../shared/types";
+import CustomerForm from "../../features/customer/CustomerForm";
+import { Users } from "lucide-react";
 
 export default function CustomersPage() {
   return (
     <DashboardLayout>
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Заказчики</h1>
-        <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
-          Новый заказчик
-        </button>
+        <div className="flex items-center gap-2">
+          <Users className="w-6 h-6 text-primary" />
+          <h1 className="text-2xl font-bold">Заказчики</h1>
+        </div>
+        <CustomerForm />
       </div>
 
       <Card className="mb-6">
@@ -22,9 +26,9 @@ export default function CustomersPage() {
         <CardContent>
           <div className="flex w-full max-w-sm items-center space-x-2">
             <Input type="text" placeholder="Поиск по имени, компании" />
-            <button className="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300">
+            <Button variant="secondary">
               Найти
-            </button>
+            </Button>
           </div>
         </CardContent>
       </Card>
@@ -56,12 +60,12 @@ export default function CustomersPage() {
                   <TableCell>{customer.history.length}</TableCell>
                   <TableCell>
                     <div className="flex space-x-2">
-                      <button className="px-2 py-1 bg-blue-100 text-blue-700 rounded-md hover:bg-blue-200">
+                      <Button variant="outline" size="sm">
                         Посмотреть
-                      </button>
-                      <button className="px-2 py-1 bg-yellow-100 text-yellow-700 rounded-md hover:bg-yellow-200">
+                      </Button>
+                      <Button variant="outline" size="sm">
                         Изменить
-                      </button>
+                      </Button>
                     </div>
                   </TableCell>
                 </TableRow>
