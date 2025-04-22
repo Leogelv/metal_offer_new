@@ -18,7 +18,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
           {children}
         </main>
         <footer className="border-t bg-white p-4 text-center text-sm text-gray-500">
-          &copy; {new Date().getFullYear()} Система учёта заказов на металлообработку
+          &copy; {new Date().getFullYear()} Metallorg - Система учёта заказов на металлообработку
         </footer>
       </div>
     </div>

@@ -6,20 +6,30 @@ import { usePathname } from 'next/navigation';
 import { cn } from '../../src/lib/utils';
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
 import { Button } from '../ui/button';
-import { Menu } from 'lucide-react';
+import { 
+  Menu, 
+  Package, 
+  Users, 
+  Layers, 
+  DollarSign, 
+  Settings,
+  FileText,
+  Factory
+} from 'lucide-react';
 
 type NavItem = {
   title: string;
   href: string;
-  icon?: React.ReactNode;
+  icon: React.ReactNode;
 };
 
 const navItems: NavItem[] = [
-  { title: 'Заказы', href: '/orders' },
-  { title: 'Заказчики', href: '/customers' },
-  { title: 'Материалы', href: '/materials' },
-  { title: 'Финансы', href: '/finances' },
-  { title: 'Настройки', href: '/settings' },
+  { title: 'Заказы', href: '/orders', icon: <Package className="w-5 h-5" /> },
+  { title: 'Заказчики', href: '/customers', icon: <Users className="w-5 h-5" /> },
+  { title: 'Материалы', href: '/materials', icon: <Layers className="w-5 h-5" /> },
+  { title: 'Финансы', href: '/finances', icon: <DollarSign className="w-5 h-5" /> },
+  { title: 'Коммерческое', href: '/offer', icon: <FileText className="w-5 h-5" /> },
+  { title: 'Настройки', href: '/settings', icon: <Settings className="w-5 h-5" /> },
 ];
 
 interface SidebarProps {
@@ -35,14 +45,15 @@ export function Sidebar({ className }: SidebarProps) {
       <Sheet>
         <SheetTrigger asChild className="lg:hidden">
           <Button variant="outline" size="icon" className="h-9 w-9">
-            <Menu className="h-4 w-4" />
+            <Menu className="h-5 w-5" />
             <span className="sr-only">Открыть меню</span>
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="w-64">
           <div className="flex flex-col space-y-6 py-4">
-            <div className="px-3 py-2 text-xl font-bold">
-              Металлообработка
+            <div className="flex items-center gap-2 px-3 py-2">
+              <Factory className="h-6 w-6 text-primary" />
+              <span className="text-xl font-bold">Metallorg</span>
             </div>
             <div className="space-y-1">
               {navItems.map((item) => (
@@ -50,13 +61,14 @@ export function Sidebar({ className }: SidebarProps) {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    'flex items-center px-3 py-2 text-sm font-medium rounded-md',
+                    'flex items-center gap-3 px-3 py-3 text-sm font-medium rounded-md transition-all duration-200 hover:bg-gray-100',
                     pathname === item.href
-                      ? 'bg-gray-100 text-gray-900'
-                      : 'text-gray-700 hover:bg-gray-50'
+                      ? 'bg-gray-100 text-primary shadow-sm'
+                      : 'text-gray-700 hover:text-primary'
                   )}
                 >
-                  {item.title}
+                  {item.icon}
+                  <span>{item.title}</span>
                 </Link>
               ))}
             </div>
@@ -67,13 +79,14 @@ export function Sidebar({ className }: SidebarProps) {
       {/* Desktop */}
       <div
         className={cn(
-          'hidden lg:flex lg:flex-col h-screen w-64 border-r bg-white',
+          'hidden lg:flex lg:flex-col h-screen w-64 border-r bg-white shadow-sm transition-all duration-300',
           className
         )}
       >
         <div className="flex flex-col space-y-6 py-4">
-          <div className="px-6 py-2 text-xl font-bold">
-            Металлообработка
+          <div className="flex items-center gap-2 px-6 py-4 border-b pb-4">
+            <Factory className="h-6 w-6 text-primary" />
+            <span className="text-xl font-bold">Metallorg</span>
           </div>
           <div className="space-y-1 px-3">
             {navItems.map((item) => (
@@ -81,13 +94,14 @@ export function Sidebar({ className }: SidebarProps) {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  'flex items-center px-3 py-2 text-sm font-medium rounded-md',
+                  'flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-md transition-all duration-200 hover:bg-gray-100 hover:transform hover:translate-x-1',
                   pathname === item.href
-                    ? 'bg-gray-100 text-gray-900'
-                    : 'text-gray-700 hover:bg-gray-50'
+                    ? 'bg-gray-100 text-primary shadow-sm'
+                    : 'text-gray-700 hover:text-primary'
                 )}
               >
-                {item.title}
+                {item.icon}
+                <span>{item.title}</span>
               </Link>
             ))}
           </div>
