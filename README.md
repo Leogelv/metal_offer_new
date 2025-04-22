@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Система учёта заказов на металлообработку
 
-## Getting Started
+Демо-версия системы для учёта заказов на металлообработку с администраторским интерфейсом для управления заказами, клиентами, материалами, финансами и коммерческими предложениями.
 
-First, run the development server:
+## Функциональность
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Учёт заказов**: добавление, редактирование, статусы выполнения и оплаты
+- **База заказчиков**: информация о клиентах и история их заказов
+- **Учёт материалов**: отслеживание остатков, приход и списание
+- **Финансы**: доходы/расходы, отчёты, баланс
+- **Коммерческие предложения**: создание, шаблоны, предпросмотр
+- **Настройки**: цены, данные компании, системные параметры
+
+## Технологии
+
+- **Frontend**: React, TypeScript, Next.js
+- **UI компоненты**: shadcn/ui
+- **Стилизация**: Tailwind CSS
+- **Иконки**: Lucide React
+
+## Структура проекта
+
+```
+metal_offer/
+├── src/
+│   ├── app/                  # Страницы приложения
+│   │   ├── orders/           # Страница заказов
+│   │   ├── customers/        # Страница заказчиков
+│   │   ├── materials/        # Страница материалов
+│   │   ├── finances/         # Страница финансов
+│   │   ├── proposal/         # Страница коммерческих предложений
+│   │   ├── settings/         # Страница настроек
+│   │   ├── page.tsx          # Главная страница (редирект)
+│   │   └── layout.tsx        # Корневой layout
+│   ├── shared/               # Общие модули
+│   │   ├── types.ts          # Типы данных
+│   │   └── mockData.ts       # Моковые данные для демо
+│   ├── entities/             # Бизнес-сущности
+│   ├── features/             # Фичи приложения
+│   ├── widgets/              # Виджеты интерфейса
+│   ├── processes/            # Бизнес-процессы 
+│   ├── lib/                  # Утилиты
+│   └── public/               # Статические файлы
+├── components/               # UI компоненты
+│   ├── ui/                   # Базовые UI компоненты
+│   └── layout/               # Компоненты layout
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Начало работы
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Установка
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Клонировать репозиторий:
+```
+git clone <repository-url>
+```
 
-## Learn More
+2. Установить зависимости:
+```
+cd metal_offer
+pnpm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Запуск для разработки
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+pnpm dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Приложение будет доступно по адресу [http://localhost:3000](http://localhost:3000)
 
-## Deploy on Vercel
+### Сборка для production
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+pnpm build
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Запуск production-версии
+
+```
+pnpm start
+```
+
+## Особенности демо-версии
+
+- **Моковые данные**: Все данные хранятся в памяти (src/shared/mockData.ts)
+- **Отсутствие бэкенда**: Нет реальной БД и API
+- **Неактивные кнопки**: Часть функциональности реализована как UI-заглушки
+
+## Дополнительно
+
+Этот проект создан с использованием [Next.js](https://nextjs.org/) и [shadcn/ui](https://ui.shadcn.com/).
+
+## Структура верификации
+
+**Последняя проверка кода:** 08.06.2024

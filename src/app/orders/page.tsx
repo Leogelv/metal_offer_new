@@ -1,0 +1,83 @@
+import { DashboardLayout } from "../../../components/layout/DashboardLayout";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../../components/ui/card";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../../../components/ui/table";
+import { Badge } from "../../../components/ui/badge";
+import { orders } from "../../shared/mockData";
+
+export default function OrdersPage() {
+  // Функция для отображения статуса заказа
+  const getStatusBadge = (status: string) => {
+    if (status === 'completed') {
+      return <Badge className="bg-green-500 hover:bg-green-600">Выполнен</Badge>;
+    }
+    return <Badge variant="outline">Не выполнен</Badge>;
+  };
+
+  // Функция для отображения статуса оплаты
+  const getPaymentBadge = (payment: string) => {
+    if (payment === 'paid') {
+      return <Badge className="bg-blue-500 hover:bg-blue-600">Оплачен</Badge>;
+    } else if (payment === 'debt') {
+      return <Badge className="bg-yellow-500 hover:bg-yellow-600">Долг</Badge>;
+    }
+    return <Badge variant="outline">Не оплачен</Badge>;
+  };
+
+  return (
+    <DashboardLayout>
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-2xl font-bold">Заказы</h1>
+        <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+          Новый заказ
+        </button>
+      </div>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Все заказы</CardTitle>
+          <CardDescription>
+            Управление заказами на металлообработку
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>ID</TableHead>
+                <TableHead>Заказчик</TableHead>
+                <TableHead>Детали</TableHead>
+                <TableHead>Материал</TableHead>
+                <TableHead>Сварка</TableHead>
+                <TableHead>Покраска</TableHead>
+                <TableHead>Статус</TableHead>
+                <TableHead>Оплата</TableHead>
+                <TableHead>Дата</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {orders.map((order) => (
+                <TableRow key={order.id}>
+                  <TableCell>{order.id}</TableCell>
+                  <TableCell>{order.customerId}</TableCell>
+                  <TableCell>
+                    {order.items.map((item) => (
+                      <div key={item.name}>
+                        {item.name} x{item.quantity}
+                      </div>
+                    ))}
+                  </TableCell>
+                  <TableCell>{order.material === 'own' ? 'Свой' : 'Клиента'}</TableCell>
+                  <TableCell>{order.welding ? 'Да' : 'Нет'}</TableCell>
+                  <TableCell>{order.painting ? 'Да' : 'Нет'}</TableCell>
+                  <TableCell>{getStatusBadge(order.status)}</TableCell>
+                  <TableCell>{getPaymentBadge(order.payment)}</TableCell>
+                  <TableCell>{order.date}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </CardContent>
+      </Card>
+    </DashboardLayout>
+  );
+} 
