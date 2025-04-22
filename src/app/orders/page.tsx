@@ -3,6 +3,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../..
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../../../components/ui/table";
 import { Badge } from "../../../components/ui/badge";
 import { orders } from "../../shared/mockData";
+import OrderForm from "../../features/order/OrderForm";
+import { Package, Plus, Filter, FileDown, Search } from "lucide-react";
+import { Input } from "../../../components/ui/input";
+import { Button } from "../../../components/ui/button";
 
 export default function OrdersPage() {
   // Функция для отображения статуса заказа
@@ -26,18 +30,41 @@ export default function OrdersPage() {
   return (
     <DashboardLayout>
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Заказы</h1>
-        <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
-          Новый заказ
-        </button>
+        <div className="flex items-center gap-2">
+          <Package className="w-6 h-6 text-primary" />
+          <h1 className="text-2xl font-bold">Заказы</h1>
+        </div>
+        <OrderForm />
       </div>
 
-      <Card>
+      <Card className="card-interactive">
         <CardHeader>
-          <CardTitle>Все заказы</CardTitle>
-          <CardDescription>
-            Управление заказами на металлообработку
-          </CardDescription>
+          <div className="flex justify-between items-center">
+            <div>
+              <CardTitle>Все заказы</CardTitle>
+              <CardDescription>
+                Управление заказами на металлообработку
+              </CardDescription>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="relative">
+                <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+                <Input
+                  type="search"
+                  placeholder="Поиск..."
+                  className="pl-8 w-[250px] h-9"
+                />
+              </div>
+              <Button variant="outline" size="sm">
+                <Filter className="h-4 w-4 mr-2" />
+                Фильтры
+              </Button>
+              <Button variant="outline" size="sm">
+                <FileDown className="h-4 w-4 mr-2" />
+                Экспорт
+              </Button>
+            </div>
+          </div>
         </CardHeader>
         <CardContent>
           <Table>
@@ -56,13 +83,14 @@ export default function OrdersPage() {
             </TableHeader>
             <TableBody>
               {orders.map((order) => (
-                <TableRow key={order.id}>
-                  <TableCell>{order.id}</TableCell>
+                <TableRow key={order.id} className="hover-scale">
+                  <TableCell className="font-medium">{order.id}</TableCell>
                   <TableCell>{order.customerId}</TableCell>
                   <TableCell>
                     {order.items.map((item) => (
-                      <div key={item.name}>
-                        {item.name} x{item.quantity}
+                      <div key={item.name} className="flex items-center">
+                        <span className="font-medium">{item.name}</span>
+                        <span className="ml-2 text-xs text-muted-foreground">x{item.quantity}</span>
                       </div>
                     ))}
                   </TableCell>
@@ -71,7 +99,7 @@ export default function OrdersPage() {
                   <TableCell>{order.painting ? 'Да' : 'Нет'}</TableCell>
                   <TableCell>{getStatusBadge(order.status)}</TableCell>
                   <TableCell>{getPaymentBadge(order.payment)}</TableCell>
-                  <TableCell>{order.date}</TableCell>
+                  <TableCell className="text-muted-foreground">{order.date}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
