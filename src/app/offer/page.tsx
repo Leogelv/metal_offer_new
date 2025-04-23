@@ -182,71 +182,6 @@ export default function OfferPage() {
                 </div>
               </div>
 
-              {/* Pricing and Timeline */}
-              <div className="bg-primary/5 rounded-xl p-6 mt-8">
-                <h2 className="text-2xl font-bold text-gray-900">Стоимость и сроки</h2>
-                
-                <div className="mt-6 grid md:grid-cols-2 gap-6">
-                  <div className="bg-white rounded-lg p-5 shadow-md hover:shadow-lg transition-all">
-                    <div className="flex items-center gap-3 mb-3">
-                      <Shield className="h-7 w-7 text-primary" />
-                      <h3 className="font-semibold text-xl">Инвестиции в разработку</h3>
-                    </div>
-                    <p className="text-sm text-gray-600 mb-2">Фиксированная стоимость полного проекта:</p>
-                    <p className="text-4xl font-bold text-gray-900">600 000 ₽</p>
-                    <p className="text-sm text-gray-500 mt-2">Включая поддержку в течение 3 месяцев</p>
-                  </div>
-                  
-                  <div className="bg-white rounded-lg p-5 shadow-md hover:shadow-lg transition-all">
-                    <div className="flex items-center gap-3 mb-3">
-                      <Clock className="h-7 w-7 text-primary" />
-                      <h3 className="font-semibold text-xl">Оперативная реализация</h3>
-                    </div>
-                    <p className="text-sm text-gray-600 mb-2">Срок разработки от старта до внедрения:</p>
-                    <p className="text-4xl font-bold text-gray-900">1 месяц</p>
-                    <p className="text-sm text-gray-500 mt-2">С еженедельной демонстрацией результатов</p>
-                  </div>
-                </div>
-                
-                <div className="mt-6 bg-white rounded-lg p-5 shadow-md hover:shadow-lg transition-all">
-                  <h3 className="font-semibold text-lg mb-3">В стоимость входит:</h3>
-                  <ul className="grid md:grid-cols-2 gap-2">
-                    <li className="flex items-center gap-2 text-sm">
-                      <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                      <span>Проектирование архитектуры</span>
-                    </li>
-                    <li className="flex items-center gap-2 text-sm">
-                      <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                      <span>Разработка интерфейса</span>
-                    </li>
-                    <li className="flex items-center gap-2 text-sm">
-                      <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                      <span>Настройка базы данных</span>
-                    </li>
-                    <li className="flex items-center gap-2 text-sm">
-                      <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                      <span>Настройка прав доступа</span>
-                    </li>
-                    <li className="flex items-center gap-2 text-sm">
-                      <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                      <span>Развёртывание на хостинге</span>
-                    </li>
-                    <li className="flex items-center gap-2 text-sm">
-                      <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                      <span>Обучение персонала</span>
-                    </li>
-                    <li className="flex items-center gap-2 text-sm">
-                      <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                      <span>Техническая документация</span>
-                    </li>
-                    <li className="flex items-center gap-2 text-sm">
-                      <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                      <span>3 месяца поддержки</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              
               {/* Credibility Section */}
               <div className="mt-8">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Почему выбирают нас</h2>
@@ -298,12 +233,9 @@ export default function OfferPage() {
             <CardFooter className="flex flex-col sm:flex-row gap-4 justify-center p-6 bg-gray-50 border-t">
               <a href="https://t.me/sapientweb" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                 <Button size="lg" className="w-full bg-primary hover:bg-primary/90 text-white shadow-md hover:shadow-lg transition-all">
-                  Связаться с нами
+                  Получить предложение по цене
                 </Button>
               </a>
-              <Button size="lg" variant="outline" className="w-full sm:w-auto border-primary text-primary hover:bg-primary/5">
-                Получить коммерческое предложение
-              </Button>
             </CardFooter>
           </Card>
         </div>
